@@ -45,5 +45,6 @@
 	</array>
 	<key>HockeyAppId</key>
 	<string>${APP_ID}</string>
+	<key>NSPhotoLibraryUsageDescription</key>
 </dict>
 </plist>

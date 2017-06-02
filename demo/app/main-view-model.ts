@@ -12,4 +12,8 @@ export class HelloWorldModel extends Observable {
         HockeyApp.trackEvent("DEMO TAP");
     }
 
+    public onFeedback() {
+        // Test HockeyApp event tracking
+        HockeyApp.showFeedback(true);
+    }
 }

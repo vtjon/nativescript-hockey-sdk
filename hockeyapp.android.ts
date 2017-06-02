@@ -23,6 +23,9 @@ class HockeyAppAndroidPlugin implements Android {
             if (!net.hockeyapp.android.metrics.MetricsManager.getInstance()) {
                 net.hockeyapp.android.metrics.MetricsManager.register(application.android.nativeApp);
             }
+            
+            net.hockeyapp.android.FeedbackManager.register(application.android.nativeApp);
+            net.hockeyapp.android.UpdateManager.register(application.android.nativeApp);
 
             application.android.on(application.AndroidApplication.activityResumedEvent, activityEventData => {
                 net.hockeyapp.android.CrashManager.register(activityEventData.activity);
@@ -43,6 +46,15 @@ class HockeyAppAndroidPlugin implements Android {
             console.warn("Invalid event name, it may not appear in HockeyApp");
         }
         net.hockeyapp.android.metrics.MetricsManager.trackEvent(eventName);
+    }
+    
+    showFeedback(takeScreenshot: boolean): void {
+        if (takeScreenshot) {
+            net.hockeyapp.android.FeedbackManager.setActivityForScreenshot(application.android.foregroundActivity);
+            net.hockeyapp.android.FeedbackManager.takeScreenshot(application.android.foregroundActivity);
+        }
+
+        net.hockeyapp.android.FeedbackManager.showFeedbackActivity(application.android.foregroundActivity, null, null);
     }
 
 }

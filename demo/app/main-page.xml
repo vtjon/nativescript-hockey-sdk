@@ -8,5 +8,6 @@
 
     <StackLayout class="p-20">
         <Button text="Test Event Tracking" tap="{{ onTap }}" class="btn btn-primary btn-active"/>
+        <Button text="Show Feedback Form" tap="{{ onFeedback }}" class="btn btn-primary btn-active"/>
     </StackLayout>
 </Page>

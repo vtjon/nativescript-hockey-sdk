@@ -4,17 +4,24 @@
   "readme": "NativeScript Application",
   "repository": "https://github.com/toddanglin/nativescript-hockey-sdk",
   "nativescript": {
-    "id": "com.htmlui.nativescript-hockeysdk-demo",
+    "id": "com.htmlui.nativescript.hockeysdk.demo",
     "tns-ios": {
+      "version": "3.0.1"
+    },
+    "tns-android": {
       "version": "3.0.1"
     }
   },
   "dependencies": {
-    "nativescript-hockey-sdk": "..",
+    "nativescript-hockey-sdk": "file:///C:\\src\\nativescript-hockey-sdk",
     "nativescript-theme-core": "~1.0.4",
     "tns-core-modules": "3.0.1"
   },
   "devDependencies": {
+    "babel-traverse": "6.4.5",
+    "babel-types": "6.4.5",
+    "babylon": "6.4.5",
+    "lazy": "1.0.11",
     "nativescript-dev-android-snapshot": "^0.*.*",
     "nativescript-dev-typescript": "^0.4.2",
     "typescript": "~2.2.1"

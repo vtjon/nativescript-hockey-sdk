@@ -12,6 +12,7 @@ class HockeyAppIOSPlugin implements IOS {
 
     private initDone = false;
     private metricsManager : any = null;
+    private feedbackManager: any = null;
 
     constructor() { }
 
@@ -40,6 +41,7 @@ class HockeyAppIOSPlugin implements IOS {
             BITHockeyManager.sharedHockeyManager().authenticator.authenticateInstallation();
 
             this.metricsManager = BITHockeyManager.sharedHockeyManager().metricsManager;
+            this.feedbackManager = BITHockeyManager.sharedHockeyManager().feedbackManager;
             this.initDone = true;
         } catch (e) {
             console.error('Error during init of HockeyApp', e);
@@ -57,6 +59,15 @@ class HockeyAppIOSPlugin implements IOS {
         this.metricsManager.trackEventWithName(eventName)
     }
 
+    showFeedback(takeScreenshot: boolean): void {
+         if (!this.feedbackManager) {
+            console.warn("Feedback manager is not initialized, feedback will not be shown");
+            return;
+         }
+
+         this.feedbackManager.showFeedbackListView();
+        
+    }
 }
 
 /**
