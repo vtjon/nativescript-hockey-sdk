@@ -4,6 +4,8 @@ lib/
 *.js.map
 *.js
 !*install.js
+!index.js
+!hockeyapp*.js
 *.log
 hooks/
 node_modules
