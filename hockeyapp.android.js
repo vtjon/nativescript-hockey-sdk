@@ -17,16 +17,15 @@ var HockeyAppAndroidPlugin = (function () {
         try {
             if (!net.hockeyapp.android.metrics.MetricsManager.getInstance()) {
                 net.hockeyapp.android.metrics.MetricsManager.register(application.android.nativeApp);
+                console.log("Registering Metrics Manager");
             }
-            net.hockeyapp.android.FeedbackManager.register(application.android.nativeApp);
-            net.hockeyapp.android.UpdateManager.register(application.android.nativeApp);
             application.android.on(application.AndroidApplication.activityResumedEvent, function (activityEventData) {
                 net.hockeyapp.android.CrashManager.register(activityEventData.activity);
             });
             this.initDone = true;
         }
         catch (e) {
-            console.error('Error during init of HockeyApp', e);
+            console.error("Error during init of HockeyApp", e);
         }
     };
     HockeyAppAndroidPlugin.prototype.trackEvent = function (eventName) {
